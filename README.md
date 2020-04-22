@@ -8,8 +8,14 @@ Manage your book reading experience. Check out the project's [documentation](htt
 # Prerequisites
 
 - [Docker](https://docs.docker.com/docker-for-mac/install/)  
+- poetry
 
 # Local Development
+
+To ensure that requirements are updated: 
+```bash
+ poetry export  -f requirements.txt --without-hashes  > requirements.txt
+```
 
 Start the dev server for local development:
 ```bash
