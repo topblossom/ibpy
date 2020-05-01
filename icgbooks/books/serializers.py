@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from . import models
+from icgbooks.books import models
 
 
 class BookSerializer(serializers.ModelSerializer):

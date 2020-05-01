@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework import permissions
-from .models import Book
-from .serializers import BookSerializer
+from icgbooks.books.models import Book
+from icgbooks.books.serializers import BookSerializer
 
 
 class BookViewSet(viewsets.ModelViewSet):

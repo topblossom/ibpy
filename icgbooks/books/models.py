@@ -6,3 +6,6 @@ class Book(models.Model):
     pages = models.PositiveIntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
+
+    # class Meta:
+    #     app_label = 'icgbooks.books'
