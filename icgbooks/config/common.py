@@ -24,6 +24,7 @@ class Common(Configuration):
 
         # Your apps
         'icgbooks.users',
+        'icgbooks.books',
 
     )
 

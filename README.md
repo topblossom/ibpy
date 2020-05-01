@@ -23,7 +23,12 @@ docker-compose up
 ```
 
 Run a command inside the docker container:
-
 ```bash
 docker-compose run --rm web [command]
+```
+
+
+Make migrations in docker container
+```bash
+docker-compose run --rm web python manage.py makemigrations
 ```
