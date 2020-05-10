@@ -4,4 +4,4 @@ from .serializers import ShelfSerializer
 
 class ShelfViewSet(viewsets.ModelViewSet):
     queryset = Shelf.objects.all()
-    serializer_class =ShelfSerializer
+    serializer_class = ShelfSerializer
