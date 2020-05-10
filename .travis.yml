@@ -1,18 +1,22 @@
 sudo: required
 language: python
 services:
-  - docker
+- docker
 python:
-  - "3.8"
+- '3.8'
 before_script:
-  - docker-compose build
+- docker-compose build
 script:
-  - docker-compose run --rm web bash -c "flake8 . &&
-                                         python wait_for_postgres.py &&
-                                         ./manage.py test"
-
+- docker-compose run --rm web bash -c "flake8 . && python wait_for_postgres.py &&
+  ./manage.py test"
 notifications:
   email: false
-
 cache:
   pip: true
+#after_success:
+#- git config --global user.name "semantic-release (via TravisCI)"
+#- git config --global user.email "semantic-release@travis.com"
+#- semantic-release version
+#env:
+#  global:
+#    secure: CB19VQIrEx6ePM4gwTTdFBIG9JLC/2XTFr0A7pUHFF+uAqPQjaUGpJMtuslvrhLu1STUmZ3lMHte69hUZ7+M6N7bqNxGaCQCokkhlAYklegWwzgqEMdQA0pcDzgFNUIgy8UkqZkyUlC3oFzgQuBMXkUcoRrpl9gldc84Ym8qrn47sHIX3v7EfD6IVhsIHZAA+H8/QNwzO8zi2NKBhBRjqn8+6LdqtOW/v63ayEW8ifRjC57Ug3t8tnPBX8eS1/3SEUWtAE6TXq11l3f9qSiBH5KQrgWy6YTb3ac7XLTmJNxp7QeH655Hv1o1fMQCBe9UnW/IwmjBdD6l3RIbye9PAEvuwSLWuQgcAhv5eMy1eX7lw0YC4kCTVmXfeMLij+TcGBcEXjHrAd9mN90QzeI1Bpcq6h5VbzB6Shey+ReYN1ARRqQ9h0q50CKsfRu+RszRBRmke2vbRyevNgpK3Crd49ZnfwkfDh1d7Ujl1BP+iZBZVzIe2sn1unD8RbMi3FKubpdptD4zAwoytk60YuKvN62OMT20QHhDfjzCjBZYE//qAqPAEGt+4Pyurfj6rygKNMic0a5Y3UWn99aFxm6axLXKewTJGuq0uUjCJSMuhfzY2gm+uybLFPBn+efvVEWAGU/1CWtXOqPZ/jXYEImoJNYmR2B/20hrGJRYsqWmIig=

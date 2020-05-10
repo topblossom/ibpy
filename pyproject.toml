@@ -36,6 +36,10 @@ whitenoise = "^5.0.1"
 
 [tool.semantic_release]
 version_variable="pyproject.toml:version"
+hvcs="github"
+check_build_status=true
+upload_to_release=true
+
 [build-system]
 requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"
