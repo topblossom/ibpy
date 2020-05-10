@@ -25,6 +25,7 @@ class Common(Configuration):
         # Your apps
         'icgbooks.users',
         'icgbooks.books',
+        'icgbooks.shelves'
 
     )
 

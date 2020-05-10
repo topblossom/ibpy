@@ -7,5 +7,8 @@ class Book(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return f'{self.title}, {self.pages} pages'
+
     # class Meta:
     #     app_label = 'icgbooks.books'
