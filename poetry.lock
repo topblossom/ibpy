@@ -1027,8 +1027,19 @@ version = "0.34.2"
 [package.extras]
 test = ["pytest (>=3.0.0)", "pytest-cov"]
 
+[[package]]
+category = "main"
+description = "Radically simplified static file serving for WSGI applications"
+name = "whitenoise"
+optional = false
+python-versions = ">=3.5, <4"
+version = "5.0.1"
+
+[package.extras]
+brotli = ["brotli"]
+
 [metadata]
-content-hash = "7f8942166d6b7033e4c9e334db453fd37a94163f9d37405586244ee24bdb64d2"
+content-hash = "8c104db4cacf6c61b81c69f0fa557aa5fdce5747d1f8544da9a673becf616653"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -1543,4 +1554,8 @@ webencodings = [
 wheel = [
     {file = "wheel-0.34.2-py2.py3-none-any.whl", hash = "sha256:df277cb51e61359aba502208d680f90c0493adec6f0e848af94948778aed386e"},
     {file = "wheel-0.34.2.tar.gz", hash = "sha256:8788e9155fe14f54164c1b9eb0a319d98ef02c160725587ad60f14ddc57b6f96"},
+]
+whitenoise = [
+    {file = "whitenoise-5.0.1-py2.py3-none-any.whl", hash = "sha256:62556265ec1011bd87113fb81b7516f52688887b7a010ee899ff1fd18fd22700"},
+    {file = "whitenoise-5.0.1.tar.gz", hash = "sha256:0f9137f74bd95fa54329ace88d8dc695fbe895369a632e35f7a136e003e41d73"},
 ]

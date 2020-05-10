@@ -10,6 +10,8 @@ class Local(Common):
     INSTALLED_APPS = Common.INSTALLED_APPS
     INSTALLED_APPS += ('django_nose',)
     TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
     NOSE_ARGS = [
         BASE_DIR,
         '-s',
