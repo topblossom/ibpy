@@ -6,17 +6,20 @@ python:
 - '3.8'
 before_script:
 - docker-compose build
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+  > ./cc-test-reporter
+- chmod +x ./cc-test-reporter
+- "./cc-test-reporter before-build"
 script:
 - docker-compose run --rm web bash -c "flake8 . && python wait_for_postgres.py &&
   ./manage.py test"
+after_script:
+- "./cc-test-reporter format-coverage -t coverage.py ./.coverage"
+- "./cc-test-reporter upload-coverage"
 notifications:
   email: false
 cache:
   pip: true
-#after_success:
-#- git config --global user.name "semantic-release (via TravisCI)"
-#- git config --global user.email "semantic-release@travis.com"
-#- semantic-release version
-#env:
-#  global:
-#    secure: CB19VQIrEx6ePM4gwTTdFBIG9JLC/2XTFr0A7pUHFF+uAqPQjaUGpJMtuslvrhLu1STUmZ3lMHte69hUZ7+M6N7bqNxGaCQCokkhlAYklegWwzgqEMdQA0pcDzgFNUIgy8UkqZkyUlC3oFzgQuBMXkUcoRrpl9gldc84Ym8qrn47sHIX3v7EfD6IVhsIHZAA+H8/QNwzO8zi2NKBhBRjqn8+6LdqtOW/v63ayEW8ifRjC57Ug3t8tnPBX8eS1/3SEUWtAE6TXq11l3f9qSiBH5KQrgWy6YTb3ac7XLTmJNxp7QeH655Hv1o1fMQCBe9UnW/IwmjBdD6l3RIbye9PAEvuwSLWuQgcAhv5eMy1eX7lw0YC4kCTVmXfeMLij+TcGBcEXjHrAd9mN90QzeI1Bpcq6h5VbzB6Shey+ReYN1ARRqQ9h0q50CKsfRu+RszRBRmke2vbRyevNgpK3Crd49ZnfwkfDh1d7Ujl1BP+iZBZVzIe2sn1unD8RbMi3FKubpdptD4zAwoytk60YuKvN62OMT20QHhDfjzCjBZYE//qAqPAEGt+4Pyurfj6rygKNMic0a5Y3UWn99aFxm6axLXKewTJGuq0uUjCJSMuhfzY2gm+uybLFPBn+efvVEWAGU/1CWtXOqPZ/jXYEImoJNYmR2B/20hrGJRYsqWmIig=
+env:
+  global:
+    secure: kS50/umDtdMMQLvkbvF+vQ9iEMKvlNVcOjsS2PAQGkYRty3/GiH/zpbRxJwto/NZoPCJBrZH34NqqUEIEx2f2qfzx+ivvSmbRCyxE0Lc2If8GzUDimU8ndVd7145CBJJSpml3Sj5nepXFKLmuawVDNMxH4k1cwqOudhroaOi7dkNI0loc3jYhpAuP5gpAalVisKC8EjEJUXm8ns9MjSETGoPzpp4yFBjKDzYvo2QnVtAmFoKfKaKgQHmo0Hyb6yjrlk/u7DQWySCOF/bIRIzew2SzwsSZiiwbrlXvCGukpfPBBk5o4Mo7j6OorRkDY4SZ1QDckR+lS3C3xzHxchBfhbTawCxk5JlESLxuRY8OVoEWsXJUR/qBp1/uBc7D0hJXSwO24uAug8Oo3XvipbgCH56U54rIj8m9sWCFlX/S8OR1nKU++14fJYjEbXkQnn0PBnEGndlvk3YUdVOy3rCNSmUrb/KD97ja+5DExTgx19V/xqKYmroAx4sVlm0f6CxOUUEaP1E6++AbSyxnHQh7cfaguOzrbgIv0RJj34l7vj9kTHqWnJeoTSQ0AdIMixWu0pgpXg0g4pA19m6AMJSyNvbQWk0j+Q3zIo3eC3H2RB1D2eT4+bP+ozF49lfDu+UgJ7KKnkGNtJlqPdai7OOk6oxvkh6lAg7WrrqWeCBCeg=
