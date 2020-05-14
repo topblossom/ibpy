@@ -22,6 +22,16 @@ class Common(Configuration):
         'rest_framework.authtoken',  # token authentication
         'django_filters',            # for filtering rest endpoints
 
+        # oauth-related
+        'rest_auth'
+        'django.contrib.sites',
+        'allauth',
+        'allauth.account',
+        'rest_auth.registration',
+        'allauth.socialaccount',
+        'allauth.socialaccount.providers.facebook',
+        'allauth.socialaccount.providers.twitter',
+
         # Your apps
         'icgbooks.users',
         'icgbooks.books',
@@ -45,7 +55,7 @@ class Common(Configuration):
     ROOT_URLCONF = 'icgbooks.urls'
     SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
     WSGI_APPLICATION = 'icgbooks.wsgi.application'
-
+    SITE_ID = 1
     # Email
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
