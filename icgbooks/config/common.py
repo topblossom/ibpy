@@ -23,7 +23,7 @@ class Common(Configuration):
         'django_filters',            # for filtering rest endpoints
 
         # oauth-related
-        'rest_auth'
+        'rest_auth',
         'django.contrib.sites',
         'allauth',
         'allauth.account',
