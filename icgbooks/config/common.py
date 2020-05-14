@@ -29,8 +29,7 @@ class Common(Configuration):
         'allauth.account',
         'rest_auth.registration',
         'allauth.socialaccount',
-        'allauth.socialaccount.providers.facebook',
-        'allauth.socialaccount.providers.twitter',
+        'allauth.socialaccount.providers.google',
 
         # Your apps
         'icgbooks.users',
@@ -189,6 +188,17 @@ class Common(Configuration):
                 'handlers': ['console'],
                 'level': 'INFO'
             },
+        }
+    }
+    SOCIALACCOUNT_PROVIDERS = {
+        'google': {
+            'SCOPE': [
+                'profile',
+                'email',
+            ],
+            'AUTH_PARAMS': {
+                'access_type': 'online',
+            }
         }
     }
 
