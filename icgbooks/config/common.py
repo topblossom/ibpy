@@ -22,15 +22,6 @@ class Common(Configuration):
         'rest_framework.authtoken',  # token authentication
         'django_filters',            # for filtering rest endpoints
 
-        # oauth-related
-        'rest_auth',
-        'django.contrib.sites',
-        'allauth',
-        'allauth.account',
-        'rest_auth.registration',
-        'allauth.socialaccount',
-        'allauth.socialaccount.providers.google',
-
         # Your apps
         'icgbooks.users',
         'icgbooks.books',
@@ -54,7 +45,7 @@ class Common(Configuration):
     ROOT_URLCONF = 'icgbooks.urls'
     SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
     WSGI_APPLICATION = 'icgbooks.wsgi.application'
-    SITE_ID = 1
+
     # Email
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
@@ -188,17 +179,6 @@ class Common(Configuration):
                 'handlers': ['console'],
                 'level': 'INFO'
             },
-        }
-    }
-    SOCIALACCOUNT_PROVIDERS = {
-        'google': {
-            'SCOPE': [
-                'profile',
-                'email',
-            ],
-            'AUTH_PARAMS': {
-                'access_type': 'online',
-            }
         }
     }
 
