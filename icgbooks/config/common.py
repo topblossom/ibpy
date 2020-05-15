@@ -3,6 +3,8 @@ from os.path import join
 from distutils.util import strtobool
 import dj_database_url
 from configurations import Configuration
+from dotenv import load_dotenv
+load_dotenv()
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -71,8 +73,8 @@ class Common(Configuration):
         'django.contrib.auth.backends.ModelBackend',
     )
     # TODO: make use of env variables and document those
-    SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = ''
-    SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = ''
+    SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.getenv('GOOGLE_OAUTH2_KEY', "PROVIDE_ME")
+    SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv('GOOGLE_OAUTH2_SECRET', "PROVIDE_ME")
 
     SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
         'https://www.googleapis.com/auth/userinfo.email',
