@@ -1,15 +1,16 @@
 import os
-from os.path import join
 from distutils.util import strtobool
+from os.path import join
+
 import dj_database_url
 from configurations import Configuration
 from dotenv import load_dotenv
+
 load_dotenv()
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 class Common(Configuration):
-
     INSTALLED_APPS = (
         'django.contrib.admin',
         'django.contrib.auth',
@@ -18,11 +19,10 @@ class Common(Configuration):
         'django.contrib.messages',
         'django.contrib.staticfiles',
 
-
         # Third party apps
-        'rest_framework',            # utilities for rest apis
+        'rest_framework',  # utilities for rest apis
         'rest_framework.authtoken',  # token authentication
-        'django_filters',            # for filtering rest endpoints
+        'django_filters',  # for filtering rest endpoints
 
         'oauth2_provider',
         'social_django',
@@ -80,7 +80,6 @@ class Common(Configuration):
         'https://www.googleapis.com/auth/userinfo.email',
         'https://www.googleapis.com/auth/userinfo.profile',
     ]
-
 
     # General
     APPEND_SLASH = False
