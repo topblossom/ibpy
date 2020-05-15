@@ -2,9 +2,9 @@
 FROM python:3.8-slim
 ENV PYTHONUNBUFFERED 1
 
-# Allows docker to cache installed dependencies between builds
-COPY  pyproject.toml poetry.lock ./
 RUN pip install poetry
+
+COPY  pyproject.toml poetry.lock ./
 
 RUN poetry config virtualenvs.create false \
                 && poetry export --without-hashes -f requirements.txt --dev \
