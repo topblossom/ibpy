@@ -92,6 +92,9 @@ class Common(Configuration):
     USE_TZ = True
     LOGIN_REDIRECT_URL = '/'
 
+    SOCIAL_AUTH_REDIRECT_IS_HTTPS = False
+    SOCIAL_AUTH_SANITIZE_REDIRECTS = False
+
     # Static files (CSS, JavaScript, Images)
     # https://docs.djangoproject.com/en/2.0/howto/static-files/
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
