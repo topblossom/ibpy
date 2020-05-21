@@ -20,6 +20,7 @@ class Common(Configuration):
         'django.contrib.staticfiles',
 
         # Third party apps
+        'corsheaders'
         'rest_framework',  # utilities for rest apis
         'rest_framework.authtoken',  # token authentication
         'django_filters',  # for filtering rest endpoints
@@ -37,6 +38,7 @@ class Common(Configuration):
 
     # https://docs.djangoproject.com/en/2.0/topics/http/middleware/
     MIDDLEWARE = (
+        'corsheaders.middleware.CorsMiddleware',
         'django.middleware.security.SecurityMiddleware',
         'whitenoise.middleware.WhiteNoiseMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
@@ -47,6 +49,7 @@ class Common(Configuration):
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
     )
 
+    CORS_ORIGIN_ALLOW_ALL = True
     ALLOWED_HOSTS = ["*"]
     ROOT_URLCONF = 'icgbooks.urls'
     SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
