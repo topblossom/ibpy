@@ -7,8 +7,12 @@ from rest_framework.routers import DefaultRouter
 from rest_framework.authtoken import views
 
 from .shelves.views import ShelfViewSet
-from .users.views import UserViewSet, UserCreateViewSet
+from .users.views import UserViewSet, UserCreateViewSet, CustomTokenObtainPairView
 from .books.views import BookViewSet
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 router = DefaultRouter()
 router.register(r'users', UserViewSet)
@@ -26,5 +30,7 @@ urlpatterns = [
     # http://www.django-rest-framework.org/api-guide/routers/#defaultrouter
     re_path(r'^$', RedirectView.as_view(url=reverse_lazy('api-root'), permanent=False)),
     path('auth/', include('rest_framework_social_oauth2.urls')),
+    path('auth/jwt/',   CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('auth/jwt/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
