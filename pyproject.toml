@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ibpy"
-version = "0.2.0"
+version = "0.3.0"
 description = ""
 authors = ["Jacek Palczewski <jpalczewski@gmail.com>"]
 
@@ -40,7 +40,6 @@ django-cors-headers = "^3.3.0"
 [tool.semantic_release]
 version_variable="pyproject.toml:version"
 hvcs="github"
-check_build_status=true
 upload_to_release=true
 
 [build-system]
