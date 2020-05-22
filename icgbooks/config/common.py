@@ -55,6 +55,8 @@ class Common(Configuration):
         'https://icg-front.sq4lea.olsztyn.pl'
     ]
     CORS_ALLOW_CREDENTIALS = True
+    SESSION_COOKIE_SAMESITE = None
+    SESSION_COOKIE_SECURE = True
 
     ALLOWED_HOSTS = ["*"]
     ROOT_URLCONF = 'icgbooks.urls'
