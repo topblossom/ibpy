@@ -49,7 +49,13 @@ class Common(Configuration):
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
     )
 
-    CORS_ORIGIN_ALLOW_ALL = True
+    CORS_ORIGIN_ALLOW_ALL = False
+    CORS_ORIGIN_WHITELIST = [
+        "http://localhost:3000",
+        'https://icg-front.sq4lea.olsztyn.pl/'
+    ]
+    CORS_ALLOW_CREDENTIALS = True
+
     ALLOWED_HOSTS = ["*"]
     ROOT_URLCONF = 'icgbooks.urls'
     SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
