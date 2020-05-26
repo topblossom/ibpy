@@ -5,9 +5,9 @@ from django.contrib import admin
 from django.views.generic.base import RedirectView
 from rest_framework.routers import DefaultRouter
 from rest_framework.authtoken import views
-
+from rest_framework.schemas import get_schema_view
 from .shelves.views import ShelfViewSet
-from .users.views import UserViewSet, UserCreateViewSet
+from .users.views import UserViewSet, UserCreateViewSet, UserProfileView
 from .books.views import BookViewSet
 
 router = DefaultRouter()
@@ -18,9 +18,11 @@ router.register(r'shelves', ShelfViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/v1/user/profile/', UserProfileView.as_view()),
     path('api/v1/', include(router.urls)),
     path('api-token-auth/', views.obtain_auth_token),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('openapi/', get_schema_view(title="icgbooks api", version="0.2.0"), name='openapi-schema'),
 
     # the 'api-root' from django rest-frameworks default router
     # http://www.django-rest-framework.org/api-guide/routers/#defaultrouter

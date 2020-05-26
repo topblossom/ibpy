@@ -1213,6 +1213,14 @@ tqdm = ">=4.14"
 
 [[package]]
 category = "main"
+description = "URI templates"
+name = "uritemplate"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "3.0.1"
+
+[[package]]
+category = "main"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
 name = "urllib3"
 optional = false
@@ -1263,7 +1271,7 @@ version = "5.0.1"
 brotli = ["brotli"]
 
 [metadata]
-content-hash = "8631869f72f8b252e195d4c7f1e208aaa11630bb1c14831a5be242192ae76d7b"
+content-hash = "f4848340d84175e20a5fa14b2cc15a1c99b66cace07dfc1a76a15340d15ae235"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -1842,6 +1850,10 @@ traitlets = [
 twine = [
     {file = "twine-3.1.1-py3-none-any.whl", hash = "sha256:c1af8ca391e43b0a06bbc155f7f67db0bf0d19d284bfc88d1675da497a946124"},
     {file = "twine-3.1.1.tar.gz", hash = "sha256:d561a5e511f70275e5a485a6275ff61851c16ffcb3a95a602189161112d9f160"},
+]
+uritemplate = [
+    {file = "uritemplate-3.0.1-py2.py3-none-any.whl", hash = "sha256:07620c3f3f8eed1f12600845892b0e036a2420acf513c53f7de0abd911a5894f"},
+    {file = "uritemplate-3.0.1.tar.gz", hash = "sha256:5af8ad10cec94f215e3f48112de2022e1d5a37ed427fbd88652fa908f2ab7cae"},
 ]
 urllib3 = [
     {file = "urllib3-1.25.9-py2.py3-none-any.whl", hash = "sha256:88206b0eb87e6d677d424843ac5209e3fb9d0190d0ee169599165ec25e9d9115"},
