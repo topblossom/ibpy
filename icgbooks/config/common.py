@@ -24,10 +24,10 @@ class Common(Configuration):
         'rest_framework',  # utilities for rest apis
         'rest_framework.authtoken',  # token authentication
         'django_filters',  # for filtering rest endpoints
-
         'oauth2_provider',
         'social_django',
         'rest_framework_social_oauth2',
+        'drf_yasg',
 
         # Your apps
         'icgbooks.users',
