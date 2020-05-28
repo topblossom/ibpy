@@ -9,4 +9,3 @@ class ShelfViewSet(viewsets.ModelViewSet):
 
     queryset = Shelf.objects.all()
     serializer_class = ShelfSerializer
-
