@@ -26,4 +26,8 @@ class Local(Common):
     EMAIL_HOST = 'localhost'
     EMAIL_PORT = 1025
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    APPEND_SLASH = True
+
+    # HSTS
+    SECURE_HSTS_PRELOAD = True
+    SECURE_HSTS_SECONDS = 3600
+    SECURE_SSL_REDIRECT = True
