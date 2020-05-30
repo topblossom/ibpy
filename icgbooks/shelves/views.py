@@ -7,5 +7,8 @@ class ShelfViewSet(viewsets.ModelViewSet):
         user = self.request.user
         return Shelf.objects.filter(owner=user)
 
+    def perform_create(self, serializer: ShelfSerializer):
+        serializer.save(owner=self.request.user)
+
     queryset = Shelf.objects.all().order_by('created_at')
     serializer_class = ShelfSerializer
