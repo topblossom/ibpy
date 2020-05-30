@@ -52,7 +52,7 @@ class Common(Configuration):
     CORS_ORIGIN_ALLOW_ALL = False
     CORS_ORIGIN_WHITELIST = [
         "http://localhost:3000",
-        'https://icg-front.sq4lea.olsztyn.pl'
+        'https://icgbooks.sq4lea.olsztyn.pl'
     ]
     CORS_ALLOW_CREDENTIALS = True
     SESSION_COOKIE_SAMESITE = None
