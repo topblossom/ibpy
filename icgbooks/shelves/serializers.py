@@ -6,4 +6,4 @@ class ShelfSerializer(serializers.ModelSerializer):
     class Meta:
         model = Shelf
         fields = ('id', 'owner', 'books', 'title', 'created_at', 'modified_at')
-        read_only_fields = ('id','created_at', 'modified_at', 'owner')
+        read_only_fields = ('id', 'created_at', 'modified_at', 'owner')
