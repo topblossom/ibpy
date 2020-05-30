@@ -31,3 +31,12 @@ class Heroku(Common):
     SECURE_HSTS_PRELOAD = True
     SECURE_HSTS_SECONDS = 3600
     SECURE_SSL_REDIRECT = True
+
+    # CSRF
+    CSRF_TRUSTED_ORIGINS = [
+        'localhost',
+        'icgbooks.sq4lea.olsztyn.pl'
+    ]
+
+    CSRF_COOKIE_SAMESITE = None
+    CSRF_COOKIE_SECURE = True
