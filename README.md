@@ -7,12 +7,21 @@
 
 Manage your book reading experience. Check out the project's [documentation](http://topblossom.github.io/ibpy/).
 
-# Prerequisites
+## Prerequisites
 
 - [Docker](https://docs.docker.com/docker-for-mac/install/)  
-- poetry
 
-# Local Development
+## Used env variables
+Below variables can be passed  via envoriment variables(heroku, I'm looking at you)
+or stored in `.env` file in root folder.
+```env
+GOOGLE_OAUTH2_KEY=
+GOOGLE_OAUTH2_SECRET=
+GOOGLE_API=
+```
+Last variable is used server-side in order to query books from google.
+
+## Local Development
 
 To ensure that requirements are updated: 
 ```bash
